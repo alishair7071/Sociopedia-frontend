@@ -86,7 +86,7 @@ const Form = () => {
     const loggedInResponse= await fetch(
       'https://sociopedia-backend-six.vercel.app/auth/login',
       {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json"
