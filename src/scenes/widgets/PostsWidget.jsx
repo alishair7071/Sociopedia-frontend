@@ -11,7 +11,7 @@ import PostWidget from "./PostWidget.jsx";
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch("http://192.168.0.105:3001/posts", {
+    const response = await fetch("https://1bd5-139-135-43-211.ngrok-free.app/posts", {
       method: "GET",
       headers: {Authorization: `Bearer ${token}`},
     });
@@ -22,7 +22,7 @@ import PostWidget from "./PostWidget.jsx";
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://192.168.0.105:3001/posts/${userId}/posts`,
+      `https://1bd5-139-135-43-211.ngrok-free.app/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

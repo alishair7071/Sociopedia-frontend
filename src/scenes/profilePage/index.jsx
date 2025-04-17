@@ -15,7 +15,7 @@ const ProfilePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const getUser = async () => {
-    const response = await fetch(`http://192.168.0.105:3001/users/${userId}`, {
+    const response = await fetch(`https://1bd5-139-135-43-211.ngrok-free.app/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

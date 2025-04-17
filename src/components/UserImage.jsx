@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`http://192.168.0.105:3001/assets/${image}`}
+        src={`https://1bd5-139-135-43-211.ngrok-free.app/assets/${image}`}
       />
     </Box>
   );

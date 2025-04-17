@@ -36,7 +36,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(
-      `http://192.168.0.105:3001/posts/${postId}/like`,
+      `https://1bd5-139-135-43-211.ngrok-free.app/posts/${postId}/like`,
       {
         method: "PATCH",
         headers: {
@@ -68,7 +68,7 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`http://192.168.0.105:3001/assets/${picturePath}`}
+          src={`https://1bd5-139-135-43-211.ngrok-free.app/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt="0.25rem">

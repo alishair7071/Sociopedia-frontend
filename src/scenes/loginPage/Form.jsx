@@ -66,7 +66,7 @@ const Form = () => {
     }
     formData.append("picturePath", values.picture.name);
     const savedUserResponse = await fetch(
-      "http://192.168.0.105:3001/auth/register",
+      "https://1bd5-139-135-43-211.ngrok-free.app/auth/register",
       {
         method: "POST",
         body: formData,
@@ -84,7 +84,7 @@ const Form = () => {
   const login = async(values, onSubmitProps)=>{
       
     const loggedInResponse= await fetch(
-      'http://192.168.0.105:3001/auth/login',
+      'https://1bd5-139-135-43-211.ngrok-free.app/auth/login',
       {
         method: "POST",
         body: JSON.stringify(values),
