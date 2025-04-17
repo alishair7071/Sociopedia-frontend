@@ -46,7 +46,7 @@ const MyPostWidget = ({ picturePath }) => {
       formData.append("picturePath", image.name);
     }
 
-    const response = await fetch("https://1bd5-139-135-43-211.ngrok-free.app/posts", {
+    const response = await fetch("https://sociopedia-backend-six.vercel.app/posts", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

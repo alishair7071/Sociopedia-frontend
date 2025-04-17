@@ -22,7 +22,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const main = palette.neutral.main;
 
   const getUser = async () => {
-    const response = await fetch(`https://1bd5-139-135-43-211.ngrok-free.app/users/${userId}`, {
+    const response = await fetch(`https://sociopedia-backend-six.vercel.app/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

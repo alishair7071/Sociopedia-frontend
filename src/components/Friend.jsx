@@ -26,7 +26,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `https://1bd5-139-135-43-211.ngrok-free.app/users/${_id}/${friendId}`,
+      `https://sociopedia-backend-six.vercel.app/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

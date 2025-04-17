@@ -66,7 +66,7 @@ const Form = () => {
     }
     formData.append("picturePath", values.picture.name);
     const savedUserResponse = await fetch(
-      "https://1bd5-139-135-43-211.ngrok-free.app/auth/register",
+      "https://sociopedia-backend-six.vercel.app/auth/register",
       {
         method: "POST",
         body: formData,
@@ -84,7 +84,7 @@ const Form = () => {
   const login = async(values, onSubmitProps)=>{
       
     const loggedInResponse= await fetch(
-      'https://1bd5-139-135-43-211.ngrok-free.app/auth/login',
+      'https://sociopedia-backend-six.vercel.app/auth/login',
       {
         method: "POST",
         body: JSON.stringify(values),
