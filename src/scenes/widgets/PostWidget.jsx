@@ -36,7 +36,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(
-      `https://sociopedia-backend-six.vercel.app/posts/${postId}/like`,
+      `http://192.168.0.105:3001/posts/${postId}/like`,
       {
         method: "PATCH",
         headers: {
@@ -68,7 +68,7 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`https://sociopedia-backend-six.vercel.app/assets/${picturePath}`}
+          src={`http://192.168.0.105:3001/assets/${picturePath}`}
         />
       )}
       <FlexBetween mt="0.25rem">
