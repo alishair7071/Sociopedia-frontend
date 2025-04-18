@@ -30,7 +30,7 @@ const MyPostWidget = ({ imageUrl }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
+  const [postImageUrl, setPostImageUrl] = useState("");
   const [post, setPost] = useState("");
   const { palette } = useTheme();
   const { _id } = useSelector((state) => state.user);
@@ -43,7 +43,7 @@ const MyPostWidget = ({ imageUrl }) => {
     const data = {
       description: post,
       userId: _id,
-      imageUrl: imageUrl,
+      imageUrl: postImageUrl,
     };
 
     const response = await fetch(
@@ -95,7 +95,7 @@ const MyPostWidget = ({ imageUrl }) => {
               let urlOfImageFromSupabase = await callUploadFunc(
                 acceptedFiles[0]
               );
-              setImageUrl(urlOfImageFromSupabase);
+              setPostImageUrl(urlOfImageFromSupabase);
             }}
           >
             {({ getRootProps, getInputProps }) => (
