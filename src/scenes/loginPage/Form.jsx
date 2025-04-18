@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../../state/index.js";
 import Dropzone from "react-dropzone";
 import FlexBetween from "../../components/FlexBetween.jsx";
+import callUploadFunc from "../../callUploadFunc.js";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -195,8 +196,11 @@ const Form = () => {
                   <Dropzone
                     acceptedFiles=".jpg, .jpeg, .png"
                     multiple={false}
-                    onDrop={(acceptedFiles) => {
+                    onDrop={async (acceptedFiles) => {
                       setFieldValue("picture", acceptedFiles[0]);
+                      console.log("selected the pic and going to call the upload func");
+                      let urlOfImageFromSupabase= await callUploadFunc(acceptedFiles[0]);
+                      setFieldValue("imageUrl", urlOfImageFromSupabase);
                     }}
                   >
                     {({ getRootProps, getInputProps }) => (
