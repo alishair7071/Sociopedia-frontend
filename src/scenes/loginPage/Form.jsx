@@ -66,7 +66,7 @@ const Form = () => {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
-    console.log(formData);
+    console.log("Sending this FormData:", [...formData.entries()]);
     const savedUserResponse = await fetch(
       "https://sociopedia-backend-six.vercel.app/auth/register",
       {
