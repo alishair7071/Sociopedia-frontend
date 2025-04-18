@@ -25,7 +25,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../state/index.js";
 
-const MyPostWidget = ({ picturePath }) => {
+const MyPostWidget = ({ imageUrl }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
@@ -61,7 +61,7 @@ const MyPostWidget = ({ picturePath }) => {
   return (
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
-        <UserImage image={picturePath} />
+        <UserImage image={imageUrl} />
         <InputBase
           placeholder="what's on your mind..."
           onChange={(e) => setPost(e.target.value)}

@@ -9,7 +9,7 @@ import FriendListWidget from "../widgets/FriendListWidget.jsx";
 
 const HomePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
-  const { _id, picturePath } = useSelector((state) => state.user);
+  const { _id, imageUrl } = useSelector((state) => state.user);
 
   return (
     <div>
@@ -22,13 +22,13 @@ const HomePage = () => {
         justifyContent="space-between"
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-          <UserWidget userId={_id} picturePath={picturePath}></UserWidget>
+          <UserWidget userId={_id} imageUrl={imageUrl}></UserWidget>
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
-          <MyPostWidget picturePath={picturePath}></MyPostWidget>
+          <MyPostWidget imageUrl={imageUrl}></MyPostWidget>
           <PostsWidget userId={_id}></PostsWidget>           
         </Box>
         {isNonMobileScreens && <Box flexBasis="26%">
