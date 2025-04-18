@@ -32,7 +32,7 @@ export const uploadImage = async (file) => {
 
   // Get public URL
   const { data: publicData } = supabase.storage
-    .from("buc")
+    .from("sociopedia-buc")
     .getPublicUrl(fileName);
     
     console.log("Public URL:", publicData.publicUrl);
