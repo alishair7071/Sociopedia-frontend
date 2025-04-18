@@ -24,11 +24,13 @@ import WidgetWrapper from "../../components/WidgetWrapper.jsx";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../state/index.js";
+import callUploadFunc from "../../callUploadFunc.js";
 
 const MyPostWidget = ({ imageUrl }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
   const [post, setPost] = useState("");
   const { palette } = useTheme();
   const { _id } = useSelector((state) => state.user);
@@ -38,19 +40,23 @@ const MyPostWidget = ({ imageUrl }) => {
   const mediumMain = palette.neutral.mediumMain;
 
   const handlePost = async () => {
-    const formData = new FormData();
-    formData.append("userId", _id);
-    formData.append("description", post);
-    if (image) {
-      formData.append("picture", image);
-      formData.append("picturePath", image.name);
-    }
+    const data = {
+      description: post,
+      userId: _id,
+      imageUrl: imageUrl,
+    };
 
-    const response = await fetch("https://sociopedia-backend-six.vercel.app/posts", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-      body: formData,
-    });
+    const response = await fetch(
+      "https://sociopedia-backend-six.vercel.app/posts",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+           "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const posts = await response.json();
     dispatch(setPosts({ posts }));
@@ -84,8 +90,12 @@ const MyPostWidget = ({ imageUrl }) => {
           <Dropzone
             acceptedFiles=".jpg, .jpeg, .png"
             multiple={false}
-            onDrop={(acceptedFiles) => {
+            onDrop={async (acceptedFiles) => {
               setImage(acceptedFiles[0]);
+              let urlOfImageFromSupabase = await callUploadFunc(
+                acceptedFiles[0]
+              );
+              setImageUrl(urlOfImageFromSupabase);
             }}
           >
             {({ getRootProps, getInputProps }) => (
