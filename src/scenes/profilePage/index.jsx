@@ -44,7 +44,7 @@ const ProfilePage = () => {
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
           <UserWidget
             userId={userId}
-            picturePath={user.picturePath}
+            imageUrl={user.imageUrl}
           ></UserWidget>
           <Box m="2rem 0" />
           <FriendListWidget userId={userId} />
