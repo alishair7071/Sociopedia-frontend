@@ -40,7 +40,7 @@ const initialValuesRegister = {
   password: "",
   location: "",
   occupation: "",
-  picture: "",
+  imageUrl: ""
 };
 
 const initialValuesLogin = {
@@ -61,17 +61,21 @@ const Form = () => {
 
   const register = async (values, onSubmitProps) => {
     //this allow us to send the image with json data
-    const formData = new FormData();
+   /* const formData = new FormData();
     for (let value in values) {
       formData.append(value, values[value]);
     }
-    formData.append("picturePath", values.picture.name);
-    console.log("Sending this FormData:", [...formData.entries()]);
+    formData.append("picturePath", values.picture.name);*/
+    console.log("Sending this FormData:" + values);
     const savedUserResponse = await fetch(
       "https://sociopedia-backend-six.vercel.app/auth/register",
       {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json"
+        }
+    
       }
     );
     const savedUser = await savedUserResponse.json();
@@ -199,7 +203,7 @@ const Form = () => {
                     acceptedFiles=".jpg, .jpeg, .png"
                     multiple={false}
                     onDrop={async (acceptedFiles) => {
-                      setFieldValue("picture", acceptedFiles[0]);
+                      //setFieldValue("picture", acceptedFiles[0]);
                       console.log("selected the pic and going to call the upload func");
                       let urlOfImageFromSupabase= await callUploadFunc(acceptedFiles[0]);
                       setFieldValue("imageUrl", urlOfImageFromSupabase);
