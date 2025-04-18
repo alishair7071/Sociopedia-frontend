@@ -18,7 +18,7 @@ const PostWidget = ({
   name,
   description,
   location,
-  picturePath,
+  imageUrl,
   userPicturePath,
   likes,
   comments,
@@ -68,7 +68,7 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`https://sociopedia-backend-six.vercel.app/assets/${picturePath}`}
+          src={`${imageUrl}`}
         />
       )}
       <FlexBetween mt="0.25rem">

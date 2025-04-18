@@ -51,7 +51,7 @@ import PostWidget from "./PostWidget.jsx";
           lastName,
           description,
           location,
-          picturePath,
+          imageUrl,
           userPicturePath,
           likes,
           comments, 
@@ -63,7 +63,7 @@ import PostWidget from "./PostWidget.jsx";
           name={`${firstName} ${lastName}`}
           description={description}
           location={location}
-          picturePath={picturePath}
+          imageUrl={imageUrl}
           userPicturePath={userPicturePath}
           likes={likes}
           comments={comments}
