@@ -66,6 +66,7 @@ const Form = () => {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
+    console.log(formData);
     const savedUserResponse = await fetch(
       "https://sociopedia-backend-six.vercel.app/auth/register",
       {
@@ -74,6 +75,7 @@ const Form = () => {
       }
     );
     const savedUser = await savedUserResponse.json();
+    console.log(savedUser);
     onSubmitProps.resetForm();
     if(savedUser){
       setPageType("login");
