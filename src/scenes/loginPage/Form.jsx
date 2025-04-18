@@ -114,6 +114,7 @@ const Form = () => {
 
 
   const handleFormSubmit = async (values, onSubmitProps) => {
+    console.log("called handle submit form");
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
   };
@@ -203,7 +204,7 @@ const Form = () => {
                     acceptedFiles=".jpg, .jpeg, .png"
                     multiple={false}
                     onDrop={async (acceptedFiles) => {
-                      //setFieldValue("picture", acceptedFiles[0]);
+                      setFieldValue("picture", "pic");
                       console.log("selected the pic and going to call the upload func");
                       let urlOfImageFromSupabase= await callUploadFunc(acceptedFiles[0]);
                       setFieldValue("imageUrl", urlOfImageFromSupabase);
