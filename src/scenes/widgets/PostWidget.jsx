@@ -62,7 +62,7 @@ const PostWidget = ({
       <Typography color={main} sx={{ mt: "1rem" }}>
         {description}
       </Typography>
-      {picturePath && (
+      {imageUrl && (
         <img
           width="100%"
           height="auto"
