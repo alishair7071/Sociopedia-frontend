@@ -19,7 +19,7 @@ export const uploadImage = async (file) => {
     console.log("entered in try");
 
   const { data, error } = await supabase.storage
-    .from("buc") // Create this bucket in Supabase
+    .from("sociopedia-buc") // Create this bucket in Supabase
     .upload(fileName, file, {
         contentType: file.type, // Ensure file type is valid
         upsert: true, // Allow replacing existing files
