@@ -47,7 +47,7 @@ const ProfilePage = () => {
             imageUrl={user.imageUrl}
           ></UserWidget>
           <Box m="2rem 0" />
-          <FriendListWidget userId={userId} />
+          <FriendListWidget userId={user._id} />
         </Box>
         <Box
           flexBasis={isNonMobileScreens ? "42%" : undefined}
