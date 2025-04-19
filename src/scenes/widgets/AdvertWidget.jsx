@@ -21,7 +21,7 @@ const AdvertWidget = () => {
             width="100%"
             height="auto"
             alt="advert"
-            src="https://sociopedia-backend-six.vercel.app/assets/info4.jpeg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpuqwnT1L3e2N5ypubaLrwpnagMko41hBRFQ&s"
             style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
           />
           </FlexBetween>
