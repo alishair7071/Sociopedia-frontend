@@ -6,9 +6,9 @@ import  UserImage  from "./UserImage.jsx";
 import { PersonRemoveOutlined, PersonAddOutlined } from "@mui/icons-material";
 import { setFriends } from "../state/index.js";
 
-const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
+const Friend = ({ friendId, name, subtitle, imageUrl }) => {
 
-  console.log("Friend is called");
+  console.log("Friend is called url of image: "+imageUrl);
 
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       
       <FlexBetween>
         <FlexBetween gap="1rem">
-          <UserImage image={userPicturePath} size="55px" />
+          <UserImage image={imageUrl} size="55px" />
           <Box
             onClick={() => {
               navigate(`/profile/${friendId}`);
